@@ -61,3 +61,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var directionState = 'ltr'; // Initial direction state
+
+    document.getElementById('toggleDirectionBtn').addEventListener('click', function() {
+        directionState = directionState === 'ltr' ? 'rtl' : 'ltr';
+
+        var iframe = document.getElementById('chatbot');
+        try {
+            var contentDocument = iframe.contentDocument || iframe.contentWindow.document;
+            contentDocument.documentElement.dir = directionState;
+            contentDocument.body.dir = directionState;
+        } catch (error) {
+            console.error("Direct manipulation failed, attempting postMessage.", error);
+            iframe.contentWindow.postMessage(JSON.stringify({ command: 'changeDirection', direction: directionState }), '*');
+        }
+    });
+});
