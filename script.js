@@ -1,3 +1,14 @@
+window.addEventListener('load', function () {
+    var chatbotFrame = document.getElementById('chatbot');
+    try {
+        var insideDoc = chatbotFrame.contentDocument || chatbotFrame.contentWindow.document;
+        insideDoc.documentElement.setAttribute('dir', 'rtl');
+    } catch (e) {
+        console.log('Cannot change the direction of the iframe content due to cross-origin policies.');
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('animatedHeader');
     let headerText = header.textContent;
@@ -31,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 for (let node of nodes) {
                     if (node.nodeType === 3) { // TEXT_NODE
                         let text = node.nodeValue;
-                        let replacedText = text.replace(/Eran/gi, "Igal");
+                        let replacedText = text.replace('<span ', '<span dir="rtl" ');
                         if (replacedText !== text) {
                             node.nodeValue = replacedText;
                         }

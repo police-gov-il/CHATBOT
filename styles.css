@@ -55,9 +55,17 @@ iframe {
 }
 
 #logo2 {
+    position: fixed;
     top: 0;
-    right: 0;
+    left: 90%;
+    height: 20vh; /* 10% of the viewport height */
+    width: 20vh; /* Initially set to the same as height to maintain aspect ratio */
+    background-image: url('AGAM.png'); /* Path to your logo image */
+    background-size: contain; /* Ensures the image fits within the div and maintains aspect ratio */
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the background image within the div */
 }
+
 
 #animatedHeader {
     position: absolute;
@@ -69,3 +77,4 @@ iframe {
     transform: translate(-50%, -50%);
     /* Ensure other styles for animation and positioning remain unchanged */
 }
+
