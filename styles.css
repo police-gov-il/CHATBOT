@@ -9,9 +9,6 @@ iframe {
     border: none;
 }
 
-#app {
-    display: none; /* Hidden as it runs in the background */
-}
 
 #chatbot {
     width: 90%;
@@ -77,28 +74,3 @@ iframe {
     /* Ensure other styles for animation and positioning remain unchanged */
 }
 
-#changeDirBtn {
-    position: fixed; /* Fixed positioning relative to the viewport */
-    top: 10px; /* Distance from the top of the viewport */
-    right: 10px; /* Distance from the right of the viewport */
-    z-index: 9999; /* High z-index to ensure it's on top of other elements */
-    padding: 10px 20px; /* Add some padding for visual appeal */
-    background-color: #007bff; /* Background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: adds rounded corners */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-}
-
-#killBtn {
-    position: fixed; /* Fixed positioning relative to the viewport */
-    top: 10px; /* Distance from the top of the viewport */
-    right: 80px; /* Adjusted distance from the right to not overlap the other button */
-    z-index: 9999; /* High z-index to ensure it's on top of other elements */
-    padding: 10px 20px; /* Add some padding for visual appeal */
-    background-color: #dc3545; /* Background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: adds rounded corners */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-}

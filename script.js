@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() 
-{
+document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('animatedHeader');
     let headerText = header.textContent;
     header.innerHTML = "";
@@ -63,18 +62,33 @@ document.addEventListener('DOMContentLoaded', function()
         });
     });
 
+    const chatbotFrame = document.getElementById('chatbot');
+    chatbotFrame.onload = function() {
+        let body = chatbotFrame.contentWindow.document.body;
+        observer.observe(body, {
+            childList: true,
+            subtree: true
+        });
+    };
+});
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var changeDirBtn = document.getElementById('changeDirBtn');
-        var killBtn = document.getElementById('killBtn');
-    
-        changeDirBtn.addEventListener('click', function() {
-            console.log('Attempting to change direction to RTL.');
-            // Your logic here
-        });
-    
-        killBtn.addEventListener('click', function() {
-            console.log('Attempting to invert colors.');
-            // Your logic here
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('killBtn').addEventListener('click', function() {
+        var iframe = document.getElementById('chatbot');
+        try {
+            var contentDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var style = contentDocument.createElement('style');
+            style.innerHTML = `
+                body, body * {
+                    background-color: black !important;
+                    color: white !important;
+                    border-color: white !important;
+                }
+            `;
+            contentDocument.head.appendChild(style);
+        } catch (error) {
+            console.error("Cannot invert colors due to cross-origin restrictions:", error);
+            // You might attempt a postMessage strategy here, but it requires the iframe's content to be set up to respond.
+        }
     });
+});
