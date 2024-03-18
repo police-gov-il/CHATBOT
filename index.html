@@ -9,30 +9,48 @@
     background: url('your-background-image.jpg'); /* Replace with your image */
     background-size: cover;
     font-family: Arial, sans-serif;
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative; /* Needed for absolute positioning of children */
   }
   .header {
     font-size: 24px;
-    color: #fff;
     text-align: center;
-    animation: fadeIn 5s infinite;
+    animation: fadeIn 5s infinite, colorShift 10s infinite;
   }
   @keyframes fadeIn {
-    0%,100% { opacity: 0; }
+    0%, 100% { opacity: 0; }
     50% { opacity: 1; }
   }
+  @keyframes colorShift {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: green; }
+    75% { color: yellow; }
+    100% { color: red; }
+  }
   .logos {
-    text-align: center;
-    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    padding: 10px;
   }
   .logo {
-    margin: 0 20px;
+    /* Adjust size as necessary */
+    width: 50px;
+    height: auto;
   }
   iframe {
-    display: block;
-    width: 80%;
-    height: 90%wh;
+    width: 80vw;
+    height: 90vh;
     border: none;
-    margin: 50px auto;
     box-shadow: 0 0 8px #000;
   }
 </style>
@@ -40,8 +58,8 @@
 <body>
 
 <div class="logos">
-  <img src="logo1.png" alt="Logo 1" class="logo">
-  <img src="logo2.png" alt="Logo 2" class="logo">
+  <img src="logo1.png" alt="Logo 1" class="logo" style="left: 0;">
+  <img src="logo2.png" alt="Logo 2" class="logo" style="right: 0;">
 </div>
 
 <h1 class="header">BotNadev Chatbot</h1>
