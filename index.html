@@ -1,69 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BotNadev Chatbot</title>
-<style>
-  body {
-    background: url('bg.jpg') no-repeat center center fixed; /* Updated line */
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative; /* Needed for absolute positioning of children */
-  }
-  .header {
-    font-size: 24px;
-    text-align: center;
-    animation: fadeIn 5s infinite, colorShift 10s infinite;
-  }
-  @keyframes fadeIn {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-  @keyframes colorShift {
-    0% { color: rgb(0, 183, 255); }
-    25% { color: rgb(0, 89, 255); }
-    50% { color: rgb(12, 18, 107); }
-    75% { color: rgb(9, 3, 82); }
-    100% { color: rgb(0, 0, 0); }
-  }
-  .logos {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
-    padding: 10px;
-  }
-  .logo {
-    width: 50px; /* Adjust size as necessary */
-    height: auto;
-  }
-  iframe {
-    width: 80vw;
-    height: 90vh;
-    border: none;
-    box-shadow: 0 0 8px #000;
-  }
-</style>
+    <title>Chatbot Of Eran</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
-<div class="logos">
-  <img src="logo1.png" alt="Logo 1" class="logo" style="left: 0;">
-  <img src="logo2.png" alt="Logo 2" class="logo" style="right: 0;">
-</div>
-
-<h1 class="header">BotNadev Chatbot</h1>
-
-<iframe src="https://oneai.com/~chat/israeli_national_police" name="chatbot"></iframe>
-
+    <script src="script.js"></script>
+    <div id="logo1"><img src="logo1.png" alt="Logo 1"></div>
+    <div id="logo2"><img src="logo2.png" alt="Logo 2"></div>
+    <h1 id="animatedHeader">הציאטבוט של מחלקת מתנדבים - בוט'נדב</h1>
+    <iframe id="app" name="app" src="app.html"></iframe>
+    <iframe id="chatbot" src="https://oneai.com/~chat/israeli_national_police"></iframe>
+   
 </body>
 </html>

@@ -1,0 +1,45 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: url('bg.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+iframe {
+    border: none;
+}
+
+#app {
+    display: none; /* Hidden as it runs in the background */
+}
+
+#chatbot {
+    width: 90%;
+    height: 85%; /* Adjusted height to compensate for the movement */
+    position: absolute;
+    left: 50%;
+    top: 55%; /* Moved down by 5% */
+    transform: translate(-50%, -50%);
+}
+
+#logo1, #logo2 {
+    position: fixed;
+    width: 10%;
+    height: 10%;
+}
+
+#logo1 {
+    top: 0;
+    left: 0;
+}
+
+#logo2 {
+    top: 0;
+    right: 0;
+}
+
+#animatedHeader {
+    text-align: center;
+    font-size: 2em;
+    /* Additional styles for animation will be controlled by JavaScript */
+}
