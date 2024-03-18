@@ -1,24 +1,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-    var iframe = document.getElementById('chatbot');
+    var changeDirBtn = document.getElementById('changeDirBtn');
 
-    iframe.addEventListener('mouseenter', function() {
+    changeDirBtn.addEventListener('click', function() {
+        var iframe = document.getElementById('chatbot');
         try {
             var contentDocument = iframe.contentDocument || iframe.contentWindow.document;
-            contentDocument.documentElement.dir = "rtl";
-            contentDocument.body.dir = "rtl";
+            var htmlContent = contentDocument.documentElement.innerHTML;
+
+            // Simple string replacement to change dir="ltr" to dir="rtl"
+            var updatedHtmlContent = htmlContent.replace(/dir="ltr"/g, 'dir="rtl"');
+
+            contentDocument.documentElement.innerHTML = updatedHtmlContent;
         } catch (error) {
-            console.error("Error changing direction to RTL on hover: ", error);
-            // Attempt to use postMessage for cross-origin iframes
-            // This requires the iframe's content to have a listener set up to respond to postMessage commands.
-            iframe.contentWindow.postMessage(JSON.stringify({ command: 'changeDirection', direction: 'rtl' }), '*');
+            console.error("Unable to modify iframe content:", error);
         }
     });
 });
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() 
+{
     const header = document.getElementById('animatedHeader');
     let headerText = header.textContent;
     header.innerHTML = "";
@@ -61,12 +63,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const chatbotFrame = document.getElementById('chatbot');
-    chatbotFrame.onload = function() {
-        let body = chatbotFrame.contentWindow.document.body;
-        observer.observe(body, {
-            childList: true,
-            subtree: true
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var changeDirBtn = document.getElementById('changeDirBtn');
+        var killBtn = document.getElementById('killBtn');
+    
+        changeDirBtn.addEventListener('click', function() {
+            console.log('Attempting to change direction to RTL.');
+            // Your logic here
         });
-    };
-});
+    
+        killBtn.addEventListener('click', function() {
+            console.log('Attempting to invert colors.');
+            // Your logic here
+        });
+    });
