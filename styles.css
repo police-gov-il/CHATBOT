@@ -23,12 +23,18 @@ iframe {
 }
 
 #headerImage {
-    width: 100%;
-    text-align: center;
+    width: 100%; /* Use the full width to ensure visibility */
+    height: 20vh; /* Adjust based on your needs to ensure the header is visible */
+    background-image: url('HEADER.jpg');
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image to simulate trimming from the top/bottom */
+    background-size: auto 120%; /* Enlarge the background to simulate trimming from the sides */
     position: absolute;
     top: 0;
     left: 0;
 }
+
+
 
 #headerImage img {
     max-width: 80%;
@@ -40,8 +46,12 @@ iframe {
     position: fixed;
     top: 0;
     left: 0;
-    max-height: 10%; /* Adjust this value based on the actual space available */
-    max-width: 10%; /* Adjust this value to maintain the aspect ratio of the logo */
+    height: 20vh; /* 10% of the viewport height */
+    width: 20vh; /* Initially set to the same as height to maintain aspect ratio */
+    background-image: url('ppp.png'); /* Path to your logo image */
+    background-size: contain; /* Ensures the image fits within the div and maintains aspect ratio */
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the background image within the div */
 }
 
 #logo2 {
@@ -53,9 +63,9 @@ iframe {
     position: absolute;
     width: 100%;
     text-align: center;
-    font-size: 2em;
+    font-size: 4em; /* Assuming the initial size was 2em, now doubled */
     top: 20%; /* Adjusted to be below the header image */
     left: 50%;
     transform: translate(-50%, -50%);
-    /* Additional styles for animation will be controlled by JavaScript */
+    /* Ensure other styles for animation and positioning remain unchanged */
 }
