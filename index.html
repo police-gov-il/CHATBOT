@@ -6,7 +6,7 @@
 <title>BotNadev Chatbot</title>
 <style>
   body {
-    background: url('your-background-image.jpg'); /* Replace with your image */
+    background: url('bg.jpg') no-repeat center center fixed; /* Updated line */
     background-size: cover;
     font-family: Arial, sans-serif;
     margin: 0; /* Removes default margin */
@@ -28,11 +28,11 @@
     50% { opacity: 1; }
   }
   @keyframes colorShift {
-    0% { color: red; }
-    25% { color: blue; }
-    50% { color: green; }
-    75% { color: yellow; }
-    100% { color: red; }
+    0% { color: rgb(0, 183, 255); }
+    25% { color: rgb(0, 89, 255); }
+    50% { color: rgb(12, 18, 107); }
+    75% { color: rgb(9, 3, 82); }
+    100% { color: rgb(0, 0, 0); }
   }
   .logos {
     position: absolute;
@@ -43,8 +43,7 @@
     padding: 10px;
   }
   .logo {
-    /* Adjust size as necessary */
-    width: 50px;
+    width: 50px; /* Adjust size as necessary */
     height: auto;
   }
   iframe {
