@@ -1,12 +1,21 @@
-window.addEventListener('load', function () {
-    var chatbotFrame = document.getElementById('chatbot');
-    try {
-        var insideDoc = chatbotFrame.contentDocument || chatbotFrame.contentWindow.document;
-        insideDoc.documentElement.setAttribute('dir', 'rtl');
-    } catch (e) {
-        console.log('Cannot change the direction of the iframe content due to cross-origin policies.');
-    }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var iframe = document.getElementById('chatbot');
+
+    iframe.addEventListener('mouseenter', function() {
+        try {
+            var contentDocument = iframe.contentDocument || iframe.contentWindow.document;
+            contentDocument.documentElement.dir = "rtl";
+            contentDocument.body.dir = "rtl";
+        } catch (error) {
+            console.error("Error changing direction to RTL on hover: ", error);
+            // Attempt to use postMessage for cross-origin iframes
+            // This requires the iframe's content to have a listener set up to respond to postMessage commands.
+            iframe.contentWindow.postMessage(JSON.stringify({ command: 'changeDirection', direction: 'rtl' }), '*');
+        }
+    });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -33,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#animatedHeader span').forEach(span => {
             span.style.color = getRandomColor();
         });
-    }, 1000);
+    }, 100);
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
@@ -60,22 +69,4 @@ document.addEventListener('DOMContentLoaded', function() {
             subtree: true
         });
     };
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var directionState = 'ltr'; // Initial direction state
-
-    document.getElementById('toggleDirectionBtn').addEventListener('click', function() {
-        directionState = directionState === 'ltr' ? 'rtl' : 'ltr';
-
-        var iframe = document.getElementById('chatbot');
-        try {
-            var contentDocument = iframe.contentDocument || iframe.contentWindow.document;
-            contentDocument.documentElement.dir = directionState;
-            contentDocument.body.dir = directionState;
-        } catch (error) {
-            console.error("Direct manipulation failed, attempting postMessage.", error);
-            iframe.contentWindow.postMessage(JSON.stringify({ command: 'changeDirection', direction: directionState }), '*');
-        }
-    });
 });
