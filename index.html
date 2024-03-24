@@ -17,6 +17,12 @@
         <script>document.body.innerHTML = document.body.innerHTML.replace(/ltr/g, 'rtl');</script>
     </iframe>
     
-    <script>document.body.innerHTML = document.body.innerHTML.replace(/ltr/g, 'rtl');</script>
+    <script>
+        document.body.innerHTML = document.body.innerHTML.replace(/ltr/g, 'rtl');
+        window.addEventListener('DOMContentLoaded', function() 
+        {
+	        document.body.innerHTML = document.body.innerHTML.replace(/Bonjour/g, "Hello");
+        })
+    </script>
 </body>
 </html>
